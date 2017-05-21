@@ -5,14 +5,17 @@ export default class Messages extends Component {
     constructor() {
         super();
         this.state = {
-            messages: "item",
+            messages: [
+                "test1",
+                "test2",
+                "test3"],
         };
     }
 
     render() {
         return (
             <div className="messages">
-                <h1>{this.messages}</h1>
+                <item>{this.state.messages}</item>
             </div>
         );
     }
