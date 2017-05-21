@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './messages/Messages';
+import './send-message/SendMessages';
 
 class App extends Component {
   render() {
