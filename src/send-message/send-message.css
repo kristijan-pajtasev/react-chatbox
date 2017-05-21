@@ -1,1 +1,13 @@
-.send-message {}
+.send-message {
+    display: flex;
+    flex-direction: row;
+}
+
+.send-message textarea {
+    resize: none;
+    flex: 1 1 90%;
+}
+
+.send-message button {
+    flex: 1 1 10%;
+}
