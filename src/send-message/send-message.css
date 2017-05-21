@@ -6,8 +6,22 @@
 .send-message textarea {
     resize: none;
     flex: 1 1 90%;
+    border: thin solid #ccc;
+    height: 3.5em;
+}
+
+.send-message textarea:focus,
+.send-message textarea:active {
+    outline: none;
 }
 
 .send-message button {
     flex: 1 1 10%;
+    background: #00B0FF;
+    border: thin solid #ccc;
+    cursor: pointer;
+}
+
+.send-message button:hover {
+    background: #0091EA;
 }
