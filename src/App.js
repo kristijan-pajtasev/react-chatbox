@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
-import Messages from './messages/Messages';
-import SendMessage from './send-message/SendMessage';
+import ChatApp from "./ChatApp";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+
+const store = createStore(() => {});
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-          <SendMessage />
-          <Messages />
-      </div>
+      <Provider store={store}>
+          <ChatApp />
+      </Provider>
     );
   }
 }
