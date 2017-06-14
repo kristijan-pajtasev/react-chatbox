@@ -4,7 +4,9 @@ import ChatApp from "./ChatApp";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 
-const store = createStore(() => {});
+const store = createStore((state = [], action) => {
+  console.log("store");
+});
 
 class App extends Component {
   render() {
