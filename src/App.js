@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import ChatApp from "./ChatApp";
-import { createStore } from "redux";
 import { Provider } from "react-redux";
-
-const store = createStore((state = [], action) => {
-  console.log("store");
-});
+import store from "./store";
 
 class App extends Component {
   render() {

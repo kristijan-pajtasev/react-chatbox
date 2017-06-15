@@ -14,7 +14,7 @@ class SendMessage extends Component {
         return (
             <div className="send-message">
                 <textarea
-                    ref={(msg) => { console.log("inp"); this.message = msg; }}></textarea>
+                    ref={(msg) => { this.message = msg; }}></textarea>
                 <button onClick={this.sendMessage}>Send Message</button>
             </div>
         );
