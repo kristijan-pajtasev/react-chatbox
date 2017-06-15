@@ -1,6 +1,6 @@
 class MessagesService {
     constructor() {
-
+        this.url = "";
     }
 
     fetchMessages() {
@@ -8,7 +8,7 @@ class MessagesService {
     }
 
     sendMessage(message) {
-
+        console.log("send message service");
     }
 }
 
