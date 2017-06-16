@@ -1,3 +1,6 @@
+import { ADD_MESSAGES } from "../actions"
+import store from "../store";
+
 class MessagesService {
     constructor() {
         this.url = "";
@@ -8,7 +11,10 @@ class MessagesService {
     }
 
     sendMessage(message) {
-        console.log("send message service");
+        store.dispatch({
+            type: ADD_MESSAGES,
+            message: message
+        });
     }
 }
 
