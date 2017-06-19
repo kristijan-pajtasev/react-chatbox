@@ -4,8 +4,11 @@ import { ADD_MESSAGES } from "../actions"
 const store = createStore((state = [], action) => {
     switch(action.type) {
         case ADD_MESSAGES:
-            console.log("ADD_MESSAGES store")
-            console.log(ADD_MESSAGES)
+            let messages = [];
+            state.push(action.message);
+            [].push.apply(messages, state);;
+            return messages;
+        default:
             return state;
     }
 });

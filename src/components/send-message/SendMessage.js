@@ -6,18 +6,18 @@ class SendMessage extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {};
-        this.sendMessage = this.sendMessage.bind(this);
     }
     sendMessage() {
-        console.log(`handle ${this.message.value}`);
+        this.props.sendMessage(this.message.value);
+        this.setState({ message: "" })
+        this.message.value = ""
     }
     render() {
-        const { sendMessage } = this.props;
         return (
             <div className="send-message">
                 <textarea
                     ref={(msg) => { this.message = msg; }}></textarea>
-                <button onClick={sendMessage}>Send Message</button>
+                <button onClick={this.sendMessage.bind(this)}>Send Message</button>
             </div>
         );
     }

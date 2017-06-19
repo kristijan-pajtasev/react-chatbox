@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 
-export default class Messages extends Component {
-
-    constructor() {
-        super();
-        this.state = {
-            messages: [
-                "test1",
-                "test2",
-                "test3"],
-        };
-    }
-
+class Messages extends Component {
     render() {
+        const { messages } = this.props;
         return (
             <div className="messages">
-                <item>{this.state.messages}</item>
+                <ul>
+                    {messages.map( (m, i) => (<li key={"message" + i}>{m}</li>) )}
+                </ul>
             </div>
         );
     }
 }
+
+function mapStateToProps(state) {
+    return { messages: state };
+}
+
+export default connect( mapStateToProps )(Messages);
