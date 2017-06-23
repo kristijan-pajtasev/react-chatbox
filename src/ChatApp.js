@@ -7,8 +7,8 @@ class ChatApp extends React.PureComponent {
     render() {
         return (
             <div className="App">
-                <SendMessage sendMessage={MessagesService.sendMessage} />
                 <Messages />
+                <SendMessage sendMessage={MessagesService.sendMessage} />
             </div>);
     }
 }
