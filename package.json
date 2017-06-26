@@ -8,9 +8,6 @@
     "react-dom": "^15.5.4"
   },
   "devDependencies": {
-    "express": "^4.15.3",
-    "react-redux": "^5.0.5",
-    "redux": "^3.6.0",
     "autoprefixer": "7.1.0",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
@@ -31,17 +28,22 @@
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "5.0.1",
     "eslint-plugin-react": "7.0.1",
+    "express": "^4.15.3",
     "extract-text-webpack-plugin": "2.1.0",
     "file-loader": "0.11.1",
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.28.0",
     "jest": "20.0.3",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.4",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.0.0",
     "postcss-loader": "2.0.5",
     "promise": "7.1.1",
     "react-dev-utils": "^1.0.2",
     "react-error-overlay": "^1.0.2",
+    "react-redux": "^5.0.5",
+    "redux": "^3.6.0",
     "style-loader": "0.17.0",
     "sw-precache-webpack-plugin": "0.9.1",
     "url-loader": "0.5.8",
@@ -82,7 +84,8 @@
   },
   "babel": {
     "presets": [
-      "react-app", "stage-0"
+      "react-app",
+      "stage-0"
     ]
   },
   "eslintConfig": {

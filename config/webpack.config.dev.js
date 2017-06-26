@@ -137,6 +137,7 @@ module.exports = {
           /\.html$/,
           /\.(js|jsx)$/,
           /\.css$/,
+          /\.less$/,
           /\.json$/,
           /\.bmp$/,
           /\.gif$/,
@@ -207,6 +208,16 @@ module.exports = {
           },
         ],
       },
+      {
+          test: /\.less$/,
+          use: [{
+              loader: "style-loader" // creates style nodes from JS strings
+          }, {
+              loader: "css-loader" // translates CSS into CommonJS
+          }, {
+              loader: "less-loader" // compiles Less to CSS
+          }]
+      }
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "file" loader exclusion list.
     ],

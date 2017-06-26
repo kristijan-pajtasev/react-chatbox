@@ -1,6 +1,6 @@
 import React, { PureComponent} from 'react';
 import PropTypes from "prop-types";
-import './send-message.css';
+import './send-message.less';
 
 class SendMessage extends PureComponent {
     constructor(props) {

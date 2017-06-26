@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.less';
 import ChatApp from "./ChatApp";
 import { Provider } from "react-redux";
 

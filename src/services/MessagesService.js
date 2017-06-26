@@ -1,4 +1,4 @@
-import { ADD_MESSAGES } from "../actions"
+import { ADD_MESSAGES } from "../constants"
 import store from "../store";
 
 class MessagesService {

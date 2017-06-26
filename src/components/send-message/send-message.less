@@ -1,0 +1,29 @@
+.send-message {
+    display: flex;
+    flex-direction: row;
+
+    textarea {
+        resize: none;
+        flex: 1 1 90%;
+        border: thin solid #ccc;
+        height: 3.5em;
+        padding: 8px;
+    }
+
+    textarea:focus,
+    textarea:active {
+        outline: none;
+    }
+
+    button {
+        flex: 1 1 10%;
+        background: #00B0FF;
+        border: thin solid #ccc;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #0091EA;
+    }
+
+}

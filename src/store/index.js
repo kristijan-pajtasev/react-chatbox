@@ -1,5 +1,5 @@
 import { createStore } from "redux";
-import { ADD_MESSAGES } from "../actions"
+import { ADD_MESSAGES } from "../constants"
 
 const store = createStore((state = [], action) => {
     switch(action.type) {
