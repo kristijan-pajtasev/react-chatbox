@@ -1,5 +1,5 @@
 import React from "react";
-import Messages from './components/messages/Messages';
+import Messages from './components/messages/MessagesList';
 import SendMessage from './components/send-message/SendMessage';
 import MessagesService from "./services/MessagesService";
 
