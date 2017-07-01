@@ -7,7 +7,7 @@ class Messages extends Component {
         return (
             <li className="message">
                 <div className="sender">{message.from}:</div>
-                <div>{message.message}</div>
+                <div className="message-text">{message.message}</div>
             </li>
         );
     }
