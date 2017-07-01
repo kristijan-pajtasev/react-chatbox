@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import "./MessagesList.less";
+import Message from "./Message";
 
 class Messages extends Component {
     render() {
@@ -8,7 +9,7 @@ class Messages extends Component {
         return (
             <div className="messages-list">
                 <ul>
-                    {messages.map( (m, i) => (<li key={"message" + i}>{m}</li>) )}
+                    {messages.map( (m, i) => (<Message key={"message" + i} message={m} />) )}
                 </ul>
             </div>
         );
