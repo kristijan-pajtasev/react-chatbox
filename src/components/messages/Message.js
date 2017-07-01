@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
 import "./Messages.less";
 
 class Messages extends Component {
     render() {
         const { message } = this.props;
         return (
-            <li className="message">{message}</li>
+            <li className="message">
+                <div className="sender">{message.from}:</div>
+                <div>{message.message}</div>
+            </li>
         );
     }
 }
 
-function mapStateToProps(state) {
-    return { messages: state };
-}
-
-export default connect( mapStateToProps )(Messages);
+export default Messages;

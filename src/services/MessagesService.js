@@ -10,7 +10,12 @@ class MessagesService {
 
     }
 
-    sendMessage(message) {
+    sendMessage(msg) {
+        const message = {
+            message: msg,
+            from: "Me"
+        };
+
         store.dispatch({
             type: ADD_MESSAGES,
             message: message
