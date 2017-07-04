@@ -8,15 +8,23 @@ class SendMessage extends PureComponent {
         this.state = {};
     }
     sendMessage() {
-        this.props.sendMessage(this.message.value);
+        this.props.sendMessage(this.state.message);
         this.setState({ message: "" })
-        this.message.value = ""
+    }
+    handleChange(event) {
+        this.setState({message: event.target.value});
+    }
+    handleKeyPress = (event) => {
+        if(event.key == 'Enter'){
+            console.log('enter press here! ')
+        }
     }
     render() {
         return (
             <div className="send-message">
                 <textarea
-                    ref={(msg) => { this.message = msg; }}></textarea>
+                    onKeyPress={this.handleKeyPress}
+                    onChange={::this.handleChange} value={this.state.message}/>
                 <button onClick={this.sendMessage.bind(this)}>Send Message</button>
             </div>
         );
@@ -25,6 +33,6 @@ class SendMessage extends PureComponent {
 
 SendMessage.saveMessage = {
     optionalFunc: PropTypes.func.isRequired,
-}
+};
 
 export default SendMessage;
