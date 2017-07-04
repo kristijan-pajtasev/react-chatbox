@@ -14,18 +14,18 @@ class SendMessage extends PureComponent {
     handleChange(event) {
         this.setState({message: event.target.value});
     }
-    handleKeyPress = (event) => {
-        if(event.key == 'Enter'){
-            console.log('enter press here! ')
+    handleKeyPress(event) {
+        if(event.key === 'Enter'){
+            this.sendMessage();
+            event.preventDefault();
         }
     }
     render() {
         return (
             <div className="send-message">
                 <textarea
-                    onKeyPress={this.handleKeyPress}
+                    onKeyPress={::this.handleKeyPress}
                     onChange={::this.handleChange} value={this.state.message}/>
-                <button onClick={this.sendMessage.bind(this)}>Send Message</button>
             </div>
         );
     }
