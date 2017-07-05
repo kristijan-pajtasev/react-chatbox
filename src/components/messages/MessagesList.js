@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from "react-redux";
+import React, { PureComponent } from 'react';
 import "./MessagesList.less";
 import Message from "./Message";
 
-class Messages extends Component {
+class Messages extends PureComponent  {
     render() {
         const { messages } = this.props;
         return (
@@ -16,8 +15,5 @@ class Messages extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return { messages: state };
-}
 
-export default connect( mapStateToProps )(Messages);
+export default Messages;

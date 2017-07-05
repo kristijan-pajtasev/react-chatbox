@@ -1,5 +1,5 @@
 import React from "react";
-import Messages from './components/messages/MessagesList';
+import MessagesContainer from './components/messages/MessagesListContainer';
 import SendMessage from './components/send-message/SendMessage';
 import MessagesService from "./services/MessagesService";
 
@@ -7,7 +7,7 @@ class ChatApp extends React.PureComponent {
     render() {
         return (
             <div className="App">
-                <Messages />
+                <MessagesContainer />
                 <SendMessage sendMessage={MessagesService.sendMessage} />
             </div>);
     }
