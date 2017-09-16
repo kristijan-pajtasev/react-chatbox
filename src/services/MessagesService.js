@@ -8,9 +8,7 @@ class MessagesService {
 
     fetchMessages() {
         fetch(`${this.url}/message`)
-            .then(res => {
-                return res.json();
-            })
+            .then(res => res.json())
             .then(
                 data => {
                     data.messages.forEach(

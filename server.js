@@ -29,6 +29,7 @@ wss.on('connection', function connection(ws, req) {
 });
 
 app.get('/message', function(req, res) {
+
     res.send({ messages: messages });
 });
 
