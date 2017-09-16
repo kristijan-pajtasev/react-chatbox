@@ -2,14 +2,12 @@ import React from "react";
 import MessagesContainer from './components/messages/MessagesListContainer';
 import SendMessage from './components/send-message/SendMessage';
 import MessagesService from "./services/MessagesService";
+import SocketService from './services/SocketService';
 
 class ChatApp extends React.PureComponent {
     constructor() {
         super();
-        var s = new WebSocket('ws://127.0.0.1:8080', 'echo-protocol');
-        s.onmessage = function(e) {
-            console.log(`message received: ${e.data}`);
-        }
+        new SocketService();
     }
 
     render() {
