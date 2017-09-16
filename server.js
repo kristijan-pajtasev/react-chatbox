@@ -21,9 +21,9 @@ let socket;
 
 wss.on('connection', function connection(ws, req) {
     socket = ws;
-    ws.on('message', function incoming(message) {
-        console.log('received: %s', message);
-    });
+    // ws.on('message', function incoming(message) {
+    //     console.log('received: %s', message);
+    // });
     ws.send('something');
 });
 
@@ -35,8 +35,10 @@ app.get('/message', function(req, res) {
 });
 
 app.post('/message', function(req, res) {
-    messages.push(req.body);
-    res.send('hello');
+    const message = req.body;
+    messages.push(message);
+    socket.send(JSON.stringify({ type: 'MESSAGE', message: message}));
+    res.send('');
 });
 
 server.listen(8080, function listening() {
