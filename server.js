@@ -21,28 +21,20 @@ let socket;
 
 wss.on('connection', function connection(ws, req) {
     socket = ws;
-    const location = url.parse(req.url, true);
-    // You might use location.query.access_token to authenticate or share sessions
-    // or req.headers.cookie (see http://stackoverflow.com/a/16395220/151312)
-
     ws.on('message', function incoming(message) {
         console.log('received: %s', message);
     });
-
     ws.send('something');
 });
 
-app.get('/send', function(req, res) {
+app.get('/message', function(req, res) {
     res.header("Access-Control-Allow-Origin", "http://127.0.0.1:3000");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
-    socket.send('in send');
-    res.send('hello');
+    res.send({ messages: messages });
 });
 
-app.post('/send', function(req, res) {
-    console.log('in send');
-    console.log(req.body);
+app.post('/message', function(req, res) {
     messages.push(req.body);
     res.send('hello');
 });
