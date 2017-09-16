@@ -29,8 +29,6 @@ wss.on('connection', function connection(ws, req) {
 });
 
 app.get('/message', function(req, res) {
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-
     res.send({ messages: messages });
 });
 

@@ -7,6 +7,17 @@ class MessagesService {
     }
 
     fetchMessages() {
+        fetch(`${this.url}/message`)
+            .then(res => {
+                return res.json();
+            })
+            .then(
+                data => {
+                    data.messages.forEach(
+                        message => this.addMessage(message)
+                    )
+                }
+            );
 
     }
 

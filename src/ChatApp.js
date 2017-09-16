@@ -9,6 +9,7 @@ class ChatApp extends React.PureComponent {
     constructor() {
         super();
         MessagesService.setApiHost(config.api);
+        MessagesService.fetchMessages();
         new SocketService(config.ws);
     }
 
