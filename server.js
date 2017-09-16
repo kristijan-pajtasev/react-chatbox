@@ -10,25 +10,25 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://127.0.0.1:3000");
+    res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
 
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
-let socket;
+let sockets = [];
 
 wss.on('connection', function connection(ws, req) {
-    socket = ws;
-    // ws.on('message', function incoming(message) {
-    //     console.log('received: %s', message);
-    // });
-    ws.send('something');
+    sockets.push(ws);
+
+    ws.on('close', function close() {
+        sockets = sockets.filter(s => s != ws);
+        console.log('socket disconnected');
+    });
 });
 
 app.get('/message', function(req, res) {
-    res.header("Access-Control-Allow-Origin", "http://127.0.0.1:3000");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
     res.send({ messages: messages });
@@ -37,7 +37,9 @@ app.get('/message', function(req, res) {
 app.post('/message', function(req, res) {
     const message = req.body;
     messages.push(message);
-    socket.send(JSON.stringify({ type: 'MESSAGE', message: message}));
+    sockets.forEach(s => {
+        s.send(JSON.stringify({ type: 'MESSAGE', message: message}));
+    });
     res.send('');
 });
 

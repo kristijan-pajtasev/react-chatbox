@@ -22,7 +22,8 @@ class MessagesService {
             message: msg,
             from: "Me"
         };
-        fetch('http://127.0.0.1:8080/message',
+
+        fetch(`${this.url}/message`,
             { method: 'POST' ,
                 headers: {
                     'Accept': 'application/json, text/plain, */*',
@@ -31,11 +32,10 @@ class MessagesService {
                 body: JSON.stringify(message)
             })
             .then(() => { console.log('response') });
+    }
 
-        store.dispatch({
-            type: ADD_MESSAGES,
-            message: message
-        });
+    setApiHost(host) {
+        this.url = host;
     }
 }
 
