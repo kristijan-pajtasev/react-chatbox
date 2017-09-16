@@ -1,4 +1,4 @@
 export default {
-    api: '',
-    ws: ''
+    api: 'localhost:8080',
+    ws: 'localhost:8080'
 }
