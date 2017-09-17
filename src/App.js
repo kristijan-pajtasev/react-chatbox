@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.less';
-import ChatAppWrapper from "./ChatAppWrapper";
+import ChatAppWrapper from "./wrappers/ChatAppWrapper";
 import { Provider } from "react-redux";
-
 import store from "./store";
 
 class App extends Component {

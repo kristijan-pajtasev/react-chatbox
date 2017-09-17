@@ -1,5 +1,5 @@
 import React from "react";
-import ChatApp from './ChatApp'
+import ChatApp from '../components/ChatApp'
 import { connect } from "react-redux";
 
 class ChatAppWrapper extends React.PureComponent {
