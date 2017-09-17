@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.less';
-import ChatApp from "./ChatApp";
+import ChatAppWrapper from "./ChatAppWrapper";
 import { Provider } from "react-redux";
 
 import store from "./store";
@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-          <ChatApp />
+          <ChatAppWrapper />
       </Provider>
     );
   }
