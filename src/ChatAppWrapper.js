@@ -1,11 +1,19 @@
 import React from "react";
 import ChatApp from './ChatApp'
+import { connect } from "react-redux";
 
 class ChatAppWrapper extends React.PureComponent {
+    constructor(props) {
+        super(props);
+    }
     render() {
         return (
-            <ChatApp />);
+            <ChatApp messages={this.props.messages} />);
     }
 }
 
-export default ChatAppWrapper;
+function mapStateToProps(state) {
+    return { messages: state };
+}
+
+export default connect( mapStateToProps )(ChatAppWrapper);
