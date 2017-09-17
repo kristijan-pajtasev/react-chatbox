@@ -1,16 +1,13 @@
 import React from "react";
 import ChatApp from '../components/ChatApp'
 import { connect } from "react-redux";
-import { saveMessage } from '../actions';
+import { sendMessage } from '../actions';
 import { bindActionCreators } from 'redux'
 
 class ChatAppWrapper extends React.PureComponent {
-    constructor(props) {
-        super(props);
-    }
     render() {
         return (
-            <ChatApp messages={this.props.messages} />);
+            <ChatApp messages={this.props.messages} saveMessage={this.props.actions.saveMessage} />);
     }
 }
 
@@ -19,7 +16,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return { actions: bindActionCreators({ saveMessage }, dispatch) }
+    return { actions: bindActionCreators({ sendMessage }, dispatch) }
 }
 
 export default connect( mapStateToProps, mapDispatchToProps )(ChatAppWrapper);

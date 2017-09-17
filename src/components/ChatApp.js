@@ -17,7 +17,7 @@ class ChatApp extends React.PureComponent {
         return (
             <div className="App">
                 <MessagesList messages={this.props.messages} />
-                <SendMessage sendMessage={MessagesService.sendMessage.bind(MessagesService)} />
+                <SendMessage sendMessage={this.props.sendMessage} />
             </div>);
     }
 }
