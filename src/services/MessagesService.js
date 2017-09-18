@@ -40,12 +40,13 @@ class MessagesService {
                 },
                 body: JSON.stringify(message)
             })
-            .then(() => { console.log('response') });
+            .then(() => { /* */ });
     }
 
     setApiHost(host) {
         this.url = host;
     }
 }
+const messagesService = new MessagesService();
 
-export default new MessagesService();
+export default messagesService;

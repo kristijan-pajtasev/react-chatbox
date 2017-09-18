@@ -1,3 +1,3 @@
-import { ADD_MESSAGES } from "../constants"
+import { SAVE_MESSAGE } from "../constants"
 
-export const sendMessage = (message) => ({ type: ADD_MESSAGES, message: message });
+export const sendMessage = (message) => ({ type: SAVE_MESSAGE, message: message });
