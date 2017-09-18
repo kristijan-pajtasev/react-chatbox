@@ -1,5 +1,5 @@
 import { createStore } from "redux";
-import MessagesStore from './MessagesStore';
+import MessagesStore from '../reducers/messages';
 
 const store = createStore(MessagesStore);
 
