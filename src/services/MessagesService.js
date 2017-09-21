@@ -7,7 +7,7 @@ class MessagesService {
     }
 
     fetchMessages() {
-        fetch(`${this.url}/message`)
+        return fetch(`${this.url}/message`)
             .then(res => res.json())
             .then(
                 data => {
@@ -32,7 +32,7 @@ class MessagesService {
             from: "Me"
         };
 
-        fetch(`${this.url}/message`,
+        return fetch(`${this.url}/message`,
             { method: 'POST' ,
                 headers: {
                     'Accept': 'application/json, text/plain, */*',
