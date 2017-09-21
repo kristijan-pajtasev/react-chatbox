@@ -12,7 +12,7 @@ class ChatAppWrapper extends React.PureComponent {
 }
 
 function mapStateToProps(state) {
-    return { messages: state.messages };
+    return { messages: state.messages, user: state.user };
 }
 
 function mapDispatchToProps(dispatch) {
