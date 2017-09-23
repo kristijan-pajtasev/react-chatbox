@@ -2,7 +2,11 @@ import React from 'react';
 
 class Login extends React.PureComponent {
     render(){
-        return <div>login</div>;
+        return (
+            <div id="login">
+                <input type="text" />
+                <button>Login</button>
+            </div>);
     }
 }
 export default Login;
