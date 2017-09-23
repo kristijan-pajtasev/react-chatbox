@@ -1,0 +1,32 @@
+.LoginComponent {
+  width: 300px;
+  margin: 0 auto;
+  padding-top: 150px;
+
+  input.username, button {
+    width: 100%;
+    padding: 8px 16px;
+
+    &:focus, &:active {
+      outline: none;
+    }
+  }
+
+  input.username {
+    border: thin solid #ccc;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  button {
+    border: thin solid #ccc;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background: #1565C0;
+    color: white;;
+
+    &:hover {
+      background: #1976D2;
+    }
+  }
+}
