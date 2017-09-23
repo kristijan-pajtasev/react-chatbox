@@ -18,6 +18,13 @@ class ChatApp extends React.PureComponent {
     }
 
     render() {
+        if(!this.props.user || !this.props.user.username) {
+            return (
+                <div className="App">
+                    <LoginComponent />
+                </div>)
+        }
+
         return (
             <div className="App">
                 <MessagesList messages={this.props.messages} />
