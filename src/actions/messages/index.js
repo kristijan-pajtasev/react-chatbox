@@ -1,5 +1,5 @@
 import { SAVE_MESSAGE } from "../constants";
-import MessagesService from '../services/MessagesService';
+import MessagesService from '../../services/MessagesService';
 
 export const sendMessage = (message) => {
     return dispatch => {

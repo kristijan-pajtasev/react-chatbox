@@ -1,6 +1,3 @@
-import { ADD_MESSAGES } from "../constants"
-import store from "../store";
-
 class LoginService {
     constructor() {
         this.url = "";
