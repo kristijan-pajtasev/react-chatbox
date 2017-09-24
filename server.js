@@ -42,6 +42,11 @@ app.post('/message', function(req, res) {
     res.send('');
 });
 
+app.post('/login', function(req, res) {
+    const username = req.body.username;
+    res.send({ username: username });
+});
+
 server.listen(8080, function listening() {
     console.log('Listening on %d', server.address().port);
 });
