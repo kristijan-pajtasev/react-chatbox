@@ -12,7 +12,7 @@ class Login extends React.PureComponent {
     }
 
     login() {
-        console.log(`login username: ${this.state.username}`);
+        this.props.login(this.state.username);
     }
 
     render(){

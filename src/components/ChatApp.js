@@ -23,7 +23,7 @@ class ChatApp extends React.PureComponent {
         if(!this.props.user || !this.props.user.username) {
             return (
                 <div className="App">
-                    <LoginComponent />
+                    <LoginComponent login={this.props.login} />
                 </div>)
         }
 

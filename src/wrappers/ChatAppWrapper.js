@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux'
 class ChatAppWrapper extends React.PureComponent {
     render() {
         return (
-            <ChatApp login={this.props.login}
+            <ChatApp login={this.props.actions.login}
                      messages={this.props.messages}
                      user={this.props.user}
                      sendMessage={this.props.actions.sendMessage} />);
