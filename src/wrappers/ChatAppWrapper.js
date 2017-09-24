@@ -1,7 +1,7 @@
 import React from "react";
 import ChatApp from '../components/ChatApp'
 import { connect } from "react-redux";
-import { sendMessage } from '../actions';
+import { sendMessage } from '../actions/messages';
 import { bindActionCreators } from 'redux'
 
 class ChatAppWrapper extends React.PureComponent {

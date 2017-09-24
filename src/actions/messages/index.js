@@ -1,4 +1,4 @@
-import { SAVE_MESSAGE } from "../constants";
+import { SAVE_MESSAGE } from "../../constants";
 import MessagesService from '../../services/MessagesService';
 
 export const sendMessage = (message) => {
