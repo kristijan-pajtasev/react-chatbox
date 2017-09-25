@@ -1,9 +1,10 @@
 import LoginService from '../../services/LoginService';
+import { SET_USERNAME } from '../../constants/user';
 
 export const login = (username) => {
     return dispatch => {
         LoginService.login(username).then(() => {
-            return {type: 'LOGIN', username: username};
+            dispatch({type: SET_USERNAME, username: username});
         })
     }
 };
