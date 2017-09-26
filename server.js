@@ -23,7 +23,7 @@ wss.on('connection', function connection(ws, req) {
     sockets.push(ws);
 
     ws.on('close', function close() {
-        sockets = sockets.filter(s => s != ws);
+        sockets = sockets.filter(s => s !== ws);
         console.log('socket disconnected');
     });
 });
