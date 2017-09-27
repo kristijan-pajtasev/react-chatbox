@@ -1,16 +1,17 @@
 const express = require('express');
 const http = require('http');
-const url = require('url');
 const WebSocket = require('ws');
 const bodyParser = require('body-parser');
 let messages = [];
+let users = [];
 
 const app = express();
 
 app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Origin", "http://127.0.0.1:3000");
+    res.header("Access-Control-Allow-Credentials", "true");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
@@ -44,6 +45,9 @@ app.post('/message', function(req, res) {
 
 app.post('/login', function(req, res) {
     const username = req.body.username;
+    let value = Math.floor(Math.random() * 100000000);
+    users.push({ username, value });
+    res.cookie('Test', value)
     res.send({ username: username });
 });
 
