@@ -47,7 +47,7 @@ app.post('/login', function(req, res) {
     const username = req.body.username;
     let value = Math.floor(Math.random() * 100000000);
     users.push({ username, value });
-    res.cookie('Test', value)
+    res.cookie('CHAT_SESSION_ID', value);
     res.send({ username: username });
 });
 
