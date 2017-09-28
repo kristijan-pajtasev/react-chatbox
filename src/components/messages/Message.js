@@ -6,7 +6,7 @@ class Messages extends Component {
         const { message } = this.props;
         return (
             <li className="message">
-                <div className="sender">{message.from}:</div>
+                <div className="sender">{message.username}:</div>
                 <div className="message-text">{message.message}</div>
             </li>
         );
