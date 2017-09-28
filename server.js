@@ -2,12 +2,14 @@ const express = require('express');
 const http = require('http');
 const WebSocket = require('ws');
 const bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser')
 let messages = [];
 let users = [];
 
 const app = express();
 
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://127.0.0.1:3000");
