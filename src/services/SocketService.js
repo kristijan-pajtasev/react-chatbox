@@ -9,7 +9,7 @@ class SocketService {
         try {
             const data = JSON.parse(e.data);
             if(!!data.type && data.type === 'MESSAGE') {
-                MessagesService.addMessage(data.message);
+                MessagesService.addMessage(data.message, data.username);
             }
         } catch(e) { }
     }

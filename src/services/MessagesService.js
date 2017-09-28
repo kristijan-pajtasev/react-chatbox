@@ -19,10 +19,11 @@ class MessagesService {
 
     }
 
-    addMessage(message) {
+    addMessage(message, username) {
         store.dispatch({
             type: ADD_MESSAGES,
-            message: message
+            message,
+            username
         });
     }
 
