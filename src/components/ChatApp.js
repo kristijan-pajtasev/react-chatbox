@@ -15,8 +15,19 @@ class ChatApp extends React.PureComponent {
         super(props);
         MessagesService.setApiHost(config.api);
         LoginService.setApiHost(config.api);
-        MessagesService.fetchMessages();
-        new SocketService(config.ws);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if((!this.props.user && nextProps.user &&
+            nextProps.user.username) ||
+            (this.props.user && nextProps.user && this.props.user.username !== nextProps.user.username)) {
+            MessagesService.fetchMessages();
+            new SocketService(config.ws);
+        }
+    }
+
+    componentDidMount() {
+        console.log('component did mount');
     }
 
     render() {
