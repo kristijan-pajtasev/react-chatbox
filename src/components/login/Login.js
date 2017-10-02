@@ -14,6 +14,11 @@ class Login extends React.PureComponent {
     login() {
         this.props.login(this.state.username);
     }
+    handleKeyPress(event) {
+        if(event.key === 'Enter'){
+            this.login();
+        }
+    }
 
     render(){
         return (
@@ -21,6 +26,7 @@ class Login extends React.PureComponent {
                 <input className="username"
                        placeholder="Enter username"
                        type="text" value={this.state.username}
+                       onKeyPress={::this.handleKeyPress}
                        onChange={this.handleChange.bind(this)} />
 
                 <button onClick={this.login.bind(this)}>Login</button>
