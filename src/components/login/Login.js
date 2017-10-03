@@ -14,6 +14,7 @@ class Login extends React.PureComponent {
     login() {
         this.props.login(this.state.username);
     }
+
     handleKeyPress(event) {
         if(event.key === 'Enter'){
             this.login();

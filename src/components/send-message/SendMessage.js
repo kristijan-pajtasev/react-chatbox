@@ -7,13 +7,16 @@ class SendMessage extends PureComponent {
         super(props);
         this.state = {};
     }
+
     sendMessage() {
         this.props.sendMessage(this.state.message);
         this.setState({ message: "" })
     }
+
     handleChange(event) {
         this.setState({message: event.target.value});
     }
+
     handleKeyPress(event) {
         if(event.key === 'Enter'){
             this.sendMessage();
