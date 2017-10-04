@@ -2,7 +2,7 @@ const express = require('express');
 const http = require('http');
 const WebSocket = require('ws');
 const bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser')
+let cookieParser = require('cookie-parser');
 let messages = [];
 let users = [];
 
@@ -32,18 +32,26 @@ wss.on('connection', function connection(ws, req) {
 });
 
 app.get('/message', function(req, res) {
-
     res.send({ messages: messages });
 });
 
 app.post('/message', function(req, res) {
     const { message } = req.body;
-    let username = users.filter(e => e.value == req.cookies.CHAT_SESSION_ID)[0].username;
+    let username = users.filter(e => e.value === req.cookies.CHAT_SESSION_ID)[0].username;
     messages.push({ message, username });
     sockets.forEach(s => {
         s.send(JSON.stringify({ type: 'MESSAGE', message, username}));
     });
     res.send('');
+});
+
+app.post('/logged', function(req, res) {
+    let user = users.filter(e => e.value == req.cookies.CHAT_SESSION_ID);
+    if(user.length === 1) {
+        res.send({ username: user[0].username });
+    } else {
+        res.send({data: 'dsa'});
+    }
 });
 
 app.post('/login', function(req, res) {
