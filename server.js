@@ -37,7 +37,7 @@ app.get('/message', function(req, res) {
 
 app.post('/message', function(req, res) {
     const { message } = req.body;
-    let username = users.filter(e => e.value === req.cookies.CHAT_SESSION_ID)[0].username;
+    let username = users.filter(e => e.value == req.cookies.CHAT_SESSION_ID)[0].username;
     messages.push({ message, username });
     sockets.forEach(s => {
         s.send(JSON.stringify({ type: 'MESSAGE', message, username}));
