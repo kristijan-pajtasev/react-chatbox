@@ -21,6 +21,24 @@ class LoginService {
             .then(() => { /* */ });
     }
 
+    isLoggedIn() {
+        return fetch(`${this.url}/logged`,
+            { method: 'POST' ,
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json'
+                },
+                mode: 'cors',
+                credentials: 'include'
+            })
+            .then((res) => {
+                if(res.status === 200) {
+                    return res.json();
+                }
+                throw new Error('User not logged in');
+            });
+    }
+
     setApiHost(host) {
         this.url = host;
     }

@@ -15,6 +15,7 @@ class ChatApp extends React.PureComponent {
         super(props);
         MessagesService.setApiHost(config.api);
         LoginService.setApiHost(config.api);
+        props.isLoggedIn();
     }
 
     componentWillReceiveProps(nextProps) {
