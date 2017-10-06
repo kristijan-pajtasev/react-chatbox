@@ -27,7 +27,6 @@ wss.on('connection', function connection(ws, req) {
 
     ws.on('close', function close() {
         sockets = sockets.filter(s => s !== ws);
-        console.log('socket disconnected');
     });
 });
 
