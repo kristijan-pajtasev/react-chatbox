@@ -9,8 +9,10 @@ class SendMessage extends PureComponent {
     }
 
     sendMessage() {
-        this.props.sendMessage(this.state.message);
-        this.setState({ message: "" })
+        if(this.state.message !== '') {
+            this.props.sendMessage(this.state.message);
+            this.setState({ message: "" })
+        }
     }
 
     handleChange(event) {
