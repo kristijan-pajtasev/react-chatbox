@@ -15,7 +15,10 @@ class ChatApp extends React.PureComponent {
         super(props);
         MessagesService.setApiHost(config.api);
         LoginService.setApiHost(config.api);
-        props.isLoggedIn();
+        this.state = { isLoggedChecked: false };
+        props.isLoggedIn().then(() => {
+            this.setState({ isLoggedChecked: true});
+        });
     }
 
     componentWillReceiveProps(nextProps) {
@@ -32,6 +35,8 @@ class ChatApp extends React.PureComponent {
     }
 
     render() {
+        if(!this.state.isLoggedChecked) return null;
+
         if(!this.props.user || !this.props.user.username) {
             return (
                 <div className="App">

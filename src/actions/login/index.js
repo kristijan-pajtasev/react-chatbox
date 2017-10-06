@@ -11,7 +11,7 @@ export const login = (username) => {
 
 export const isLoggedIn = () => {
     return dispatch => {
-        LoginService.isLoggedIn().then(
+        return LoginService.isLoggedIn().then(
             (response) => dispatch({type: SET_USERNAME, username: response.username}),
             (error) => dispatch({type: 'LOG_OUT'})
         )
