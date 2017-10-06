@@ -30,10 +30,6 @@ class ChatApp extends React.PureComponent {
         }
     }
 
-    componentDidMount() {
-        console.log('component did mount');
-    }
-
     render() {
         if(!this.state.isLoggedChecked) return null;
 
