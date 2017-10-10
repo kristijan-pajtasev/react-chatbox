@@ -7,12 +7,14 @@ class Users {
         return this.users.filter(user => user.value == sessionKey)[0];
     }
 
-    logInUser(username, value) {
+    login(username, value) {
         this.users.push({username, value});
     }
 
-    isLoggedInUser(sessionKey) {
+    isLoggedIn(sessionKey) {
         return this.users
             .filter(user => user.value == sessionKey).length === 1;
     }
 }
+
+module.exports = Users;

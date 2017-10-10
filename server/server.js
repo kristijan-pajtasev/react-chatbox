@@ -4,7 +4,7 @@ const WebSocket = require('ws');
 const bodyParser = require('body-parser');
 let cookieParser = require('cookie-parser');
 let messages = [];
-let users = [];
+let users = require("./users");
 
 const app = express();
 
@@ -36,7 +36,8 @@ app.get('/message', function(req, res) {
 
 app.post('/message', function(req, res) {
     const { message } = req.body;
-    let username = users.filter(e => e.value == req.cookies.CHAT_SESSION_ID)[0].username;
+    let user = users.getUserWithSession(req.cookies.CHAT_SESSION_ID);
+    let { username } = user;
     messages.push({ message, username });
     sockets.forEach(s => {
         s.send(JSON.stringify({ type: 'MESSAGE', message, username}));
@@ -45,9 +46,9 @@ app.post('/message', function(req, res) {
 });
 
 app.post('/logged', function(req, res) {
-    let user = users.filter(e => e.value == req.cookies.CHAT_SESSION_ID);
-    if(user.length === 1) {
-        res.send({ username: user[0].username });
+    let isLogged = users.isLoggedIn(req.cookies.CHAT_SESSION_ID);
+    if(isLogged) {
+        res.send({ username: users.getUserWithSession(req.cookies.CHAT_SESSION_ID).username });
     } else {
         res.send({data: 'dsa'});
     }
@@ -56,7 +57,7 @@ app.post('/logged', function(req, res) {
 app.post('/login', function(req, res) {
     const username = req.body.username;
     let value = Math.floor(Math.random() * 100000000);
-    users.push({ username, value });
+    users.login(username, value);
     res.cookie('CHAT_SESSION_ID', value);
     res.send({ username: username });
 });
